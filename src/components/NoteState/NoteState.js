@@ -82,7 +82,8 @@ function NoteState(props) {
               onClick={createOnStateOptionButtonClickHandler('Accepted')}
             >
               <Icon glyph="icon-annotation-status-accepted" />
-              {t('option.state.accepted')}
+              {/* Agree */}
+              {t('option.state.accept')}
             </DataElementWrapper>
             <DataElementWrapper
               dataElement="notePopupStateRejected"
@@ -90,9 +91,10 @@ function NoteState(props) {
               onClick={createOnStateOptionButtonClickHandler('Rejected')}
             >
               <Icon glyph="icon-annotation-status-rejected" />
-              {t('option.state.rejected')}
+              {/* Disagree */}
+              {t('option.state.reject')}
             </DataElementWrapper>
-            <DataElementWrapper
+            {/* <DataElementWrapper
               dataElement="notePopupStateCancelled"
               className="note-state-option"
               onClick={createOnStateOptionButtonClickHandler('Cancelled')}
@@ -131,7 +133,7 @@ function NoteState(props) {
             >
               <Icon glyph="icon-annotation-status-unmarked" />
               {t('option.state.unmarked')}
-            </DataElementWrapper>
+            </DataElementWrapper> */}
           </DataElementWrapper>
         </button>
       )}

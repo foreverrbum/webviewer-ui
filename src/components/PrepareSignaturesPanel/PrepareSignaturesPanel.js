@@ -3,8 +3,6 @@ import classNames from 'classnames';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import VirtualizedList from 'components/NotesPanel/VirtualizedList';
-import NormalList from 'components/NotesPanel/NormalList';
 import Dropdown from 'components/Dropdown';
 import Note from 'components/Note';
 import Icon from 'components/Icon';
@@ -19,10 +17,10 @@ import selectors from 'selectors';
 import useMedia from 'hooks/useMedia';
 import { isIE } from "helpers/device";
 
-import './NotesPanel.scss';
+import './PrepareSignaturesPanel.scss';
 import HeaderItems from '../HeaderItems';
 const AddComment = [{ type: 'toolGroupButton', toolGroup: 'stickyTools', dataElement: 'stickyToolGroupButton', title: 'annotation.stickyNote' }];
-const NotesPanel = ({ currentLeftPanelWidth }) => {
+const PrepareSignaturesPanel = ({ currentLeftPanelWidth }) => {
   const [
     sortStrategy,
     isOpen,
@@ -92,7 +90,7 @@ const NotesPanel = ({ currentLeftPanelWidth }) => {
       setNotes(
         core
           .getAnnotationsList()
-          .filter(annot => annot.Listable && annot.Subject != "Signature"  && annot.Subject != "SignatureField"  && !annot.isReply() && !annot.Hidden && !annot.isGrouped()),
+          .filter(annot => annot.Listable && !annot.isReply() && !annot.Hidden && !annot.isGrouped()),
       );
     };
 
@@ -349,66 +347,48 @@ const NotesPanel = ({ currentLeftPanelWidth }) => {
           </div>
         </div>}
       <React.Fragment>
-        <div className="header">
-          <div className="title">{t('comments')}</div>
-          <HeaderItems style="w-auto" items={AddComment} isToolGroupReorderingEnabled={false}/>
-          {/* <div className="input-container">
-            <input
-              type="text"
-              placeholder={t('message.searchCommentsPlaceholder')}
-              aria-label={t('message.searchCommentsPlaceholder')}
-              onChange={handleInputChange}
-              ref={inputRef}
-              id="NotesPanel__input"
-            />
+        <div className="d-flex justify-between">
+          <div>
+            Add Signature Fields
           </div>
-          <div className="divider" />
-          <div className="sort-row">
-            <Button
-              dataElement="filterAnnotationButton"
-              className="filter-annotation-button"
-              disabled={notes.length === 0}
-              label={t('component.filter')}
-              onClick={() => dispatch(actions.openElement('filterModal'))}
-            />
-            <div className="sort-container">
-              <div className="label">{`${t('message.sortBy')}:`}</div>
-              <Dropdown
-                dataElement="notesOrderDropdown"
-                disabled={notesToRender.length === 0}
-                items={Object.keys(getSortStrategies())}
-                translationPrefix="option.notesOrder"
-                currentSelectionKey={sortStrategy}
-                onClickItem={sortStrategy => {
-                  dispatch(actions.setSortStrategy(sortStrategy));
-                }}
-              />
-            </div>
-          </div> */}
         </div>
-        {notesToRender.length === 0 ? (notes.length === 0 ? NoAnnotations : NoResults) : notesToRender.length <= VIRTUALIZATION_THRESHOLD ? (
-          <NormalList
-            ref={listRef}
-            notes={notesToRender}
-            onScroll={handleScroll}
-            initialScrollTop={scrollTopRef.current}
-          >
-            {renderChild}
-          </NormalList>
-        ) : (
-            <VirtualizedList
-              ref={listRef}
-              notes={notesToRender}
-              onScroll={handleScroll}
-              initialScrollTop={scrollTopRef.current}
-              selectedIndex={singleSelectedNoteIndex}
-            >
-              {renderChild}
-            </VirtualizedList>
-          )}
+        <div className="divider" />
+        <div className="d-flex justify-between mb-2 cursor-pointer">
+          <div>
+            My Signature
+          </div>
+          <div className="">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.33268 0.666504H1.99935C1.64573 0.666504 1.30659 0.80698 1.05654 1.05703C0.806491 1.30708 0.666016 1.64622 0.666016 1.99984V5.33317M7.99935 0.666504H11.9993M14.666 0.666504H17.9993C18.353 0.666504 18.6921 0.80698 18.9422 1.05703C19.1922 1.30708 19.3327 1.64622 19.3327 1.99984V5.33317M0.666016 7.99984V11.9998M19.3327 7.99984V11.9998M0.666016 14.6665V17.9998C0.666016 18.3535 0.806491 18.6926 1.05654 18.9426C1.30659 19.1927 1.64573 19.3332 1.99935 19.3332H5.33268M19.3327 14.6665V17.9998C19.3327 18.3535 19.1922 18.6926 18.9422 18.9426C18.6921 19.1927 18.353 19.3332 17.9993 19.3332H14.666M9.99935 5.33317V14.6665M5.33268 9.99984H14.666M7.99935 19.3332H11.9993" stroke="black"/>
+          </svg>
+          </div>
+        </div>
+
+        <div className="d-flex justify-between mb-2 cursor-pointer">
+          <div>
+            Potter Li's Signature
+          </div>
+          <div className="">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.33268 0.666504H1.99935C1.64573 0.666504 1.30659 0.80698 1.05654 1.05703C0.806491 1.30708 0.666016 1.64622 0.666016 1.99984V5.33317M7.99935 0.666504H11.9993M14.666 0.666504H17.9993C18.353 0.666504 18.6921 0.80698 18.9422 1.05703C19.1922 1.30708 19.3327 1.64622 19.3327 1.99984V5.33317M0.666016 7.99984V11.9998M19.3327 7.99984V11.9998M0.666016 14.6665V17.9998C0.666016 18.3535 0.806491 18.6926 1.05654 18.9426C1.30659 19.1927 1.64573 19.3332 1.99935 19.3332H5.33268M19.3327 14.6665V17.9998C19.3327 18.3535 19.1922 18.6926 18.9422 18.9426C18.6921 19.1927 18.353 19.3332 17.9993 19.3332H14.666M9.99935 5.33317V14.6665M5.33268 9.99984H14.666M7.99935 19.3332H11.9993" stroke="black"/>
+          </svg>
+          </div>
+        </div>
+
+        <div className="d-flex justify-between cursor-pointer">
+          <div>
+            Jack Xu's Signature
+          </div>
+          <div className="">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.33268 0.666504H1.99935C1.64573 0.666504 1.30659 0.80698 1.05654 1.05703C0.806491 1.30708 0.666016 1.64622 0.666016 1.99984V5.33317M7.99935 0.666504H11.9993M14.666 0.666504H17.9993C18.353 0.666504 18.6921 0.80698 18.9422 1.05703C19.1922 1.30708 19.3327 1.64622 19.3327 1.99984V5.33317M0.666016 7.99984V11.9998M19.3327 7.99984V11.9998M0.666016 14.6665V17.9998C0.666016 18.3535 0.806491 18.6926 1.05654 18.9426C1.30659 19.1927 1.64573 19.3332 1.99935 19.3332H5.33268M19.3327 14.6665V17.9998C19.3327 18.3535 19.1922 18.6926 18.9422 18.9426C18.6921 19.1927 18.353 19.3332 17.9993 19.3332H14.666M9.99935 5.33317V14.6665M5.33268 9.99984H14.666M7.99935 19.3332H11.9993" stroke="black"/>
+          </svg>
+          </div>
+        </div>
+        
       </React.Fragment>
     </div>
   ));
 };
 
-export default NotesPanel;
+export default PrepareSignaturesPanel;

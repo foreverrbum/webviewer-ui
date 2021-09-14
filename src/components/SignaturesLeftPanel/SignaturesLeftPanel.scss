@@ -1,6 +1,26 @@
 @import '../../constants/styles';
 @import '../../constants/panel';
-
+.d-flex{
+  display: flex;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.mb-4{
+  margin-bottom: 1rem;
+}
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.divider {
+  height: 1px;
+  width: 100%;
+  background: var(--divider);
+  margin: 16px 0px;
+}
 .LeftPanel {
   z-index: 65;
   @include mobile {

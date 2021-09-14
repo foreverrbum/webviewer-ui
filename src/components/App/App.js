@@ -1,5 +1,5 @@
 import { hot } from 'react-hot-loader/root';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import { useStore, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -38,13 +38,13 @@ import ZoomOverlay from 'components/ZoomOverlay';
 import CreateStampModal from 'components/CreateStampModal';
 import CustomModal from 'components/CustomModal';
 import ColorPickerModal from 'components/ColorPickerModal';
-
+import SignaturesLeftPanel from 'components/SignaturesLeftPanel'
 import core from 'core';
 import defineReaderControlAPIs from 'src/apis';
 import loadDocument from 'helpers/loadDocument';
 import getHashParams from 'helpers/getHashParams';
 import fireEvent from 'helpers/fireEvent';
-
+import PrepareSignaturesPanel from 'components/PrepareSignaturesPanel';
 import actions from 'actions';
 
 import './App.scss';
@@ -61,6 +61,7 @@ const App = ({ removeEventHandlers }) => {
   const store = useStore();
   const dispatch = useDispatch();
   let timeoutReturn;
+  const [prepare, handlePrepare] = useState(true);
 
   useEffect(() => {
     defineReaderControlAPIs(store);
@@ -127,11 +128,12 @@ const App = ({ removeEventHandlers }) => {
     <React.Fragment>
       <div className="App">
         <Accessibility />
+        {console.log(core.getActiveSearchResult())}
 
-        <Header />
-        <ToolsHeader />
+        {/* <Header />
+        <ToolsHeader /> */}
         <div className="content">
-          <LeftPanel />
+          <LeftPanel/>
           <DocumentContainer />
           <RightPanel
             dataElement="searchPanel"
@@ -143,12 +145,12 @@ const App = ({ removeEventHandlers }) => {
             dataElement="notesPanel"
             onResize={width => dispatch(actions.setNotesPanelWidth(width))}
           >
-            <NotesPanel />
+            <NotesPanel/>
           </RightPanel>
         </div>
         <ViewControlsOverlay />
         <MenuOverlay />
-        <ZoomOverlay />
+        {/* <ZoomOverlay /> */}
         <AnnotationContentOverlay />
 
         <AnnotationPopup />
