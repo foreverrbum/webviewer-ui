@@ -193,7 +193,7 @@ const App = ({ removeEventHandlers }) => {
         </div>
         <ViewControlsOverlay />
         <MenuOverlay />
-        <ZoomOverlay />
+        {/* <ZoomOverlay /> */}
         <AnnotationContentOverlay />
         <PageManipulationOverlay />
         <LeftPanelOverlayContainer />

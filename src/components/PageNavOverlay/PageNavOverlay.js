@@ -13,7 +13,15 @@ import DataElementWrapper from 'components/DataElementWrapper';
 import Button from 'components/Button';
 
 import "./PageNavOverlay.scss";
-
+import ToggleZoomOverlay from '../../components/ToggleZoomOverlay';
+import HeaderItems from "../HeaderItems";
+const zoomMenu = [{
+  type: 'customElement',
+  render: () => <ToggleZoomOverlay />,
+  dataElement: 'zoomOverlayButton',
+  element: 'zoomOverlay',
+  hiddenOnMobileDevice: true
+}]
 class PageNavOverlay extends React.PureComponent {
   static propTypes = {
     isLeftPanelDisabled: PropTypes.bool,
@@ -138,6 +146,7 @@ class PageNavOverlay extends React.PureComponent {
         onMouseEnter={this.props.onMouseEnter}
         onMouseLeave={this.props.onMouseLeave}
       >
+        <HeaderItems style="w-auto" items={zoomMenu} isToolGroupReorderingEnabled={false} />
         <Button
           className="side-arrow-container"
           img="icon-chevron-left"

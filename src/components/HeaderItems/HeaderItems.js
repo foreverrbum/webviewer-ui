@@ -22,7 +22,7 @@ class HeaderItems extends React.PureComponent {
   }
 
   render() {
-    const { items, isToolGroupReorderingEnabled, isInDesktopOnlyMode } = this.props;
+    const { items, isToolGroupReorderingEnabled, isInDesktopOnlyMode, style } = this.props;
     let handledToolGroupButtons = false;
 
     const headers = items.map((item, i) => {
@@ -80,7 +80,7 @@ class HeaderItems extends React.PureComponent {
     });
 
     return (
-      <div className="HeaderItems">
+      <div className={`HeaderItems ${style}`}>
         { headers }
       </div>
     );
