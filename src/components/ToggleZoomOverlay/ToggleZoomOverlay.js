@@ -3,7 +3,6 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import core from 'core';
 import classNames from 'classnames';
 
-import ToggleElementButton from 'components/ToggleElementButton';
 import ActionButton from 'components/ActionButton';
 import { zoomTo, zoomIn, zoomOut } from 'helpers/zoom';
 import selectors from 'selectors';

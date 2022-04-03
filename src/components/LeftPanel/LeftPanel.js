@@ -22,6 +22,7 @@ import { isIE } from 'helpers/device';
 
 import './LeftPanel.scss';
 import LeftPanelPageTabs from "components/LeftPanelPageTabs";
+import ToolbarPanel from '../ToolbarPanel';
 
 const LeftPanel = () => {
   const isMobile = useMedia(
@@ -132,11 +133,13 @@ const LeftPanel = () => {
                 className="close-icon"
               />
             </div>
-          </div>}
+          </div>
+        }
         <div className="left-panel-header">
           {isThumbnailSelectingPages ? <LeftPanelPageTabs /> : <LeftPanelTabs />}
         </div>
         {activePanel === 'thumbnailsPanel' && <ThumbnailsPanel/>}
+        {activePanel === 'toolbarPanel' && <ToolbarPanel />}
         {activePanel === 'outlinesPanel' && <OutlinesPanel />}
         {activePanel === 'bookmarksPanel' && <BookmarksPanel />}
         {activePanel === 'layersPanel' && <LayersPanel />}

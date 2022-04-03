@@ -20,6 +20,9 @@
   --gray-11: #101214;
   --gray-12: #000000;
 
+  --gray-400: #848CA1;
+  --orange-600: #E98234;
+
   --yellow-1: #FACE0080;
   --red: red;
 
@@ -33,7 +36,7 @@
   --error-text-color: var(--red);
   --error-border-color: var(--red);
 
-  --panel-background: var(--gray-1);
+  --panel-background: var(--gray-0);
 
   --slider-filled: var(--blue-5);
   --slider-background: var(--gray-4);
@@ -51,8 +54,8 @@
   --disabled-icon: var(--gray-5);
 
   --scroll-chevron-color: var(--gray-6);
-  --icon-color: var(--gray-7);
-  --selected-icon-color: var(--gray-8);
+  --icon-color: var(--gray-400);
+  --selected-icon-color: var(--orange-600);
 
   --view-header-button-hover: var(--blue-1);
   --view-header-button-active: var(--blue-2);
@@ -69,8 +72,6 @@
 
   --box-shadow: var(--gray-6);
   --document-box-shadow: var(--gray-7);
-
-  --panel-background: var(--gray-1);
 
   --divider: var(--gray-5);
   --reply-divider: var(--gray-3);
