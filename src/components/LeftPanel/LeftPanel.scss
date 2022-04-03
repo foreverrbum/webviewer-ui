@@ -11,7 +11,7 @@
   justify-content: flex-end;
   overflow: hidden;
   position: fixed;
-  left: 0px;
+  right: 0px;
   transition: transform .3s ease-in-out;
   max-width: calc(100% - 16px);
 
@@ -21,7 +21,7 @@
   @include panel-height-fix;
 
   &.closed {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 
   @include tablet {

@@ -351,8 +351,8 @@ class DocumentContainer extends React.PureComponent {
 const mapStateToProps = state => ({
   documentContentContainerWidthStyle: selectors.getDocumentContentContainerWidthStyle(state),
   leftPanelWidth: selectors.getLeftPanelWidthWithReszieBar(state),
-  isLeftPanelOpen: selectors.isElementOpen(state, 'leftPanel'),
-  isRightPanelOpen: selectors.isElementOpen(state, 'searchPanel') || selectors.isElementOpen(state, 'notesPanel'),
+  isLeftPanelOpen: false,
+  isRightPanelOpen: selectors.isElementOpen(state, 'leftPanel') || selectors.isElementOpen(state, 'searchPanel') || selectors.isElementOpen(state, 'notesPanel'),
   isSearchOverlayOpen: selectors.isElementOpen(state, 'searchOverlay'),
   doesDocumentAutoLoad: selectors.doesDocumentAutoLoad(state),
   zoom: selectors.getZoom(state),

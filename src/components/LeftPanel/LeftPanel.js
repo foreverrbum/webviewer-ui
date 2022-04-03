@@ -106,6 +106,13 @@ const LeftPanel = () => {
       onDragOver={onDragOver}
       data-element="leftPanel"
     >
+      {(isInDesktopOnlyMode || !isTabletAndMobile) &&
+        <ResizeBar
+          dataElement="leftPanelResizeBar"
+          minWidth={minWidth}
+          onResize={width => dispatch(actions.setLeftPanelWidth(window.innerWidth-width))}
+        />
+      }
       <div
         className="left-panel-container"
         style={style}
@@ -146,19 +153,6 @@ const LeftPanel = () => {
           />
         ))}
       </div>
-      {(isInDesktopOnlyMode || !isTabletAndMobile) &&
-        <ResizeBar
-          dataElement="leftPanelResizeBar"
-          minWidth={minWidth}
-          onResize={_width => {
-            let maxAllowedWidth = window.innerWidth;
-            // there will be a scroll bar in IE, so we don't allow 100% page width
-            if (isIE) {
-              maxAllowedWidth = maxAllowedWidth - 30;
-            }
-            dispatch(actions.setLeftPanelWidth(Math.min(_width, maxAllowedWidth)));
-          }}
-        />}
     </div>
   );
 };

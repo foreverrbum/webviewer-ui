@@ -172,24 +172,6 @@ const App = ({ removeEventHandlers }) => {
         <div className="content">
           <LeftPanel />
           <DocumentContainer />
-          <RightPanel
-            dataElement="searchPanel"
-            onResize={width => dispatch(actions.setSearchPanelWidth(width))}
-          >
-            <SearchPanel />
-          </RightPanel>
-          <RightPanel
-            dataElement="notesPanel"
-            onResize={width => dispatch(actions.setNotesPanelWidth(width))}
-          >
-            <NotesPanel />
-          </RightPanel>
-          <RightPanel
-            dataElement="redactionPanel"
-            onResize={width => dispatch(actions.setRedactionPanelWidth(width))}
-          >
-            <RedactionPanel />
-          </RightPanel>
         </div>
         <ViewControlsOverlay />
         <MenuOverlay />
