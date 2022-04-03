@@ -220,7 +220,7 @@ const NoteContent = ({ annotation, isEditing, setIsEditing, noteIndex, onTextCha
     () => {
       const contentStyle = {};
       if (textColor) {
-        contentStyle.color = textColor.toHexString();
+        contentStyle.color = textColor?.toHexString();
       }
 
       return (
