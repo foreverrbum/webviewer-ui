@@ -579,3 +579,8 @@ export const replaceRedactionSearchPattern = (searchPattern, regex) => ({
   type: 'REPLACE_REDACTION_SEARCH_PATTERN',
   payload: { searchPattern, regex }
 });
+
+export const setSigners = signers => ({
+  type: 'SET_SIGNERS',
+  payload: { signers }
+});

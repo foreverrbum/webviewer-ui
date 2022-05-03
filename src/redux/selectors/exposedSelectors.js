@@ -432,3 +432,5 @@ export const shouldShowPresets = state => {
 export const shouldResetAudioPlaybackPosition = state => state.viewer.shouldResetAudioPlaybackPosition;
 
 export const getActiveSoundAnnotation = state => state.viewer.activeSoundAnnotation;
+
+export const getSigners = state => state.viewer.signers;

@@ -41,6 +41,7 @@ const redoButton = {
 
 export default {
   viewer: {
+    signers: ['jack', 'potter'],
     TabManager: null,
     tabs: [],
     activeTab: 0, // ID of active Tab (multi-tab)

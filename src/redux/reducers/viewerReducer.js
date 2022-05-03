@@ -517,6 +517,8 @@ export default initialState => (state = initialState, action) => {
       };
     case 'SET_WATERMARK_MODAL_OPTIONS':
       return { ...state, watermarkModalOptions: payload.watermarkModalOptions };
+    case 'SET_SIGNERS':
+      return { ...state, signers: payload.signers };
     case 'SET_RESET_AUDIO_PLAYBACK_POSITION':
       return { ...state, shouldResetAudioPlaybackPosition: payload.shouldResetAudioPlaybackPosition };
     case 'SET_ACTIVE_SOUND_ANNOTATION':

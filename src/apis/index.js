@@ -88,6 +88,7 @@ import mentions from './mentions';
 import settingsMenuOverlay from './menuOverlay';
 import openElement from './openElement';
 import openElements from './openElements';
+import setSigners from './setSigners';
 import print from './print';
 import printInBackground from './printInBackground';
 import cancelPrint from './cancelPrint';
@@ -251,6 +252,7 @@ export default store => {
     settingsMenuOverlay: settingsMenuOverlay(store),
     pageManipulationOverlay: pageManipulationOverlay(store),
     openElements: openElements(store),
+    setSigners: setSigners(store),
     print: print(store),
     printInBackground: printInBackground(store),
     cancelPrint,
